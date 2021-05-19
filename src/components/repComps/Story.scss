@@ -1,0 +1,27 @@
+@import '../../config/config';
+
+.story {
+	position: relative;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 120px;
+	height: 200px;
+	box-shadow: 0 5px 17px -7px rgba(0, 0, 0, 0.75);
+	border-radius: $primary-space;
+	margin-right: $primary-space;
+	transition: transform 0.2 ease;
+	&:hover {
+		transform: scale(1.07);
+	}
+	>h4{
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		color: white;
+	}
+}
+.story__avatar {
+	margin: $primary-space;
+	border: 5px solid $facebook-blue;
+}

@@ -1,0 +1,9 @@
+@import '../config/config';
+
+.feed{
+	flex: 1;
+	padding: 30px 150px;
+	@include flex-center;
+	flex-direction: column;
+	justify-content: center;
+}

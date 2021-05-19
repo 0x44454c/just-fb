@@ -1,0 +1,11 @@
+@import './config/config';
+
+.main{
+	background-color: var(--light-bg);
+	min-height: 100vh;
+}
+
+
+.main__body{
+	display: flex;
+}

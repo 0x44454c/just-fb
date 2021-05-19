@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# **Just FB**
+A clone of Facebook built with React and hosted at Firebase.
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
 ## Available Scripts
 

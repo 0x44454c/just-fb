@@ -1,0 +1,77 @@
+@import '../config/config';
+
+.header {
+	@include flex-center;
+	padding: $primary-space 20px;
+	justify-content: space-between;
+	position: sticky;
+	background-color: white;
+	z-index: 100;
+	top: 0;
+	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+	height: 45px
+}
+
+.header__left {
+	@include flex-center;
+	justify-content: space-evenly;
+	> img {
+		height: 40px;
+	}
+}
+.header__search {
+	@include flex-center;
+	background-color: var(--light-bg);
+	padding: $primary-space;
+	margin-left: $primary-space;
+	border-radius: 100px;
+	> .MuiSvgIcon-root {
+		color: gray;
+	}
+	> input {
+		height: 80%;
+		border: none;
+		background-color: transparent;
+		outline-width: 0;
+	}
+}
+
+.header__center {
+	@include flex-center;
+	flex: 1;
+	justify-content: center;
+}
+
+.header__option {
+	@include flex-center;
+	padding: 5px 20px;
+	margin: 0 $primary-space;
+	cursor: pointer;
+	> .MuiSvgIcon-root {
+		color: gray;
+	}
+	&:hover {
+		background-color: var(--light-bg);
+		border-radius: $primary-space;
+		border-bottom: none !important;
+		> .MuiSvgIcon-root {
+			color: $facebook-blue;
+		}
+	}
+	&.active{
+		border-bottom: 4px solid $facebook-blue;
+		> .MuiSvgIcon-root {
+			color: $facebook-blue;
+		}
+	}
+}
+
+.header__right {
+	@include flex-center;
+}
+.header__info {
+	@include flex-center;
+	> h4 {
+		margin: 0 $primary-space;
+	}
+}
