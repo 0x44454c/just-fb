@@ -8,21 +8,26 @@ import ChatIcon from '@material-ui/icons/Chat'
 import StorefrontIcon from '@material-ui/icons/Storefront'
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { useStateValue } from '../StateProvider'
 
-interface Props{
+// interface Props {
 
-}
-function Sidebar({}:Props): JSX.Element {
+// }
+function Sidebar(): JSX.Element {
+	const [{ user }, dispatch] = useStateValue()
+
 	return (
 		<div className="sidebar">
-			<SidebarRow src="https://i.pinimg.com/236x/6e/28/c6/6e28c6b213f899537fc8f03a72bdaf27.jpg" title="Name"/>
-			<SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center"/>
-			<SidebarRow Icon={EmojiFlagsIcon} title="Pages"/>
-			<SidebarRow Icon={PeopleIcon} title="Friends"/>
-			<SidebarRow Icon={ChatIcon} title="Messenger"/>
-			<SidebarRow Icon={StorefrontIcon} title="Marketplace"/>
-			<SidebarRow Icon={VideoLibraryIcon} title="Videos"/>
-			<SidebarRow Icon={ExpandMoreIcon} title="Marketplace"/>
+			<SidebarRow
+				src={user.photoURL}
+				title={user.displayName} />
+			<SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
+			<SidebarRow Icon={EmojiFlagsIcon} title="Pages" />
+			<SidebarRow Icon={PeopleIcon} title="Friends" />
+			<SidebarRow Icon={ChatIcon} title="Messenger" />
+			<SidebarRow Icon={StorefrontIcon} title="Marketplace" />
+			<SidebarRow Icon={VideoLibraryIcon} title="Videos" />
+			<SidebarRow Icon={ExpandMoreIcon} title="Marketplace" />
 
 		</div>
 	)

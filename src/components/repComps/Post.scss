@@ -1,0 +1,59 @@
+@import "../../config/config";
+
+.post {
+	width: 100%;
+	margin-top: 15px;
+	border-radius: 15px;
+	background-color: white;
+	box-shadow: 0 5px 7px -7px rgba(0, 0, 0, 0.75);
+}
+.post__top {
+	@include flex-center;
+	position: relative;
+	padding: 15px;
+	justify-content: space-between;
+	> .right {
+		@include flex-center;
+		gap: $primary-space;
+	}
+}
+.post__top-info {
+	> h3 {
+		font-size: medium;
+	}
+	> p {
+		font-size: small;
+		color: gray;
+	}
+}
+.post__bottom {
+	margin-top: $primary-space;
+	margin-bottom: $primary-space;
+	padding: 15px 25px;
+}
+.post__image {
+	text-align: center;
+	> img {
+		width: 98%;
+	}
+}
+
+.post__options {
+	border-top: 1px solid lightgray;
+	display: flex;
+	justify-content: space-evenly;
+	color: gray;
+	cursor: pointer;
+	padding: 15px;
+}
+.post__option {
+	@include flex-center;
+	gap: $primary-space;
+	justify-content: center;
+	flex: 1;
+	padding: 5px;
+	&:hover {
+		background-color: #eff2f5;
+		border-radius: $primary-space;
+	}
+}

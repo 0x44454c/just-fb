@@ -1,0 +1,29 @@
+@import "../config/config";
+
+.login {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		img {
+			object-fit: contain;
+			height: 150px;
+			&:last-child {
+				height: 80px;
+			}
+		}
+	}
+	button {
+		width: 300px;
+		background-color: var(--fb-blue);
+		color: white;
+		font-weight: 600;
+		&:hover {
+			background-color: white;
+			color: var(--fb-blue);
+		}
+	}
+}

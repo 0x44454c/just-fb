@@ -1,11 +1,16 @@
-@import './config/config';
+@import "./config/config";
 
-.main{
+.main {
 	background-color: var(--light-bg);
 	min-height: 100vh;
 }
 
+.progress {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+}
 
-.main__body{
+.main__body {
 	display: flex;
 }
