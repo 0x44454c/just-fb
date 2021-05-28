@@ -2,7 +2,8 @@ import { Avatar } from '@material-ui/core'
 import { InsertEmoticon, PhotoLibrary, Send, Videocam } from '@material-ui/icons'
 import React, { useState } from 'react'
 import db from '../config/firebase'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 import { useStateValue } from '../StateProvider'
 import './MessageSender.scss'
 
@@ -14,14 +15,17 @@ function MessageSender(): JSX.Element {
 
 	const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
-		db.collection('posts').add({
-			message: inp,
-			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-			profilePic: user.photoURL,
-			image: imgUrl,
-			username: user.displayName
-		})
+		if (inp.trim() || imgUrl.trim()) {
+			db.collection('posts').add({
+				message: inp,
+				timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+				profilePic: user.photoURL,
+				image: imgUrl,
+				username: user.displayName,
+				uid: user.uid
+			})
 
+		}
 		setInp("")
 		setImgUrl("")
 	}

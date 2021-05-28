@@ -33,11 +33,13 @@ function Feed(): JSX.Element {
 			{posts.map(post => (
 				<Post
 					key={post.id}
+					id={post.id}
 					profilePic={post.data.profilePic}
 					image={post.data.image}
 					username={post.data.username}
 					message={post.data.message}
 					timestamp={post.data.timestamp}
+					uid={post.data.uid}
 				/>
 			))}
 		</div>

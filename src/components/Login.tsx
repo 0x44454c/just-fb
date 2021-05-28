@@ -15,9 +15,9 @@ function Login(): JSX.Element {
 					type: actionTypes.SET_USER,
 					payload: result.user,
 				})
-				console.log(result.user)
+				// console.log(result)
 			})
-			.catch(err => alert(err.message))
+			// .catch(err => alert(err.message))
 	}
 
 

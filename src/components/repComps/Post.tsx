@@ -1,17 +1,26 @@
 import { Avatar, IconButton } from '@material-ui/core'
-import { ChatBubbleOutline, MoreVertRounded, NearMeRounded, ThumbUpRounded } from '@material-ui/icons'
+import { ChatBubbleOutline, Delete, MoreVertRounded, NearMeRounded, ThumbUpRounded } from '@material-ui/icons'
 import React from 'react'
 import './Post.scss'
+import { useStateValue } from '../../StateProvider'
+import db from '../../config/firebase'
 
 interface Props {
 	profilePic?: string,
 	image?: string,
 	username?: string,
 	timestamp?: any,
-	message?: string
+	message?: string,
+	uid: string,
+	id: string
 }
 
-function Post({ profilePic, image, username, timestamp, message }: Props): JSX.Element {
+function Post({ profilePic, image, username, timestamp, message, uid, id }: Props): JSX.Element {
+	const [{ user }, dispatch] = useStateValue()
+	const del = ()=>{
+		db.collection('posts').doc(id).delete()
+	}
+
 	return (
 		<div className="post">
 			<div className="post__top">
@@ -23,9 +32,14 @@ function Post({ profilePic, image, username, timestamp, message }: Props): JSX.E
 					</div>
 				</div>
 				<div className="left">
-					<IconButton>
-						<MoreVertRounded />
-					</IconButton>
+					{user.uid === uid ?
+						<IconButton onClick={del}>
+							<Delete fontSize="small" />
+						</IconButton>
+						: <IconButton>
+							<MoreVertRounded />
+						</IconButton>
+					}
 				</div>
 			</div>
 			<div className="post__bottom">

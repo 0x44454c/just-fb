@@ -10,14 +10,19 @@ import { Avatar, IconButton } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import ForumIcon from '@material-ui/icons/Forum'
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import { useStateValue } from '../StateProvider'
+import { auth } from '../config/firebase'
 
 // interface Props {
 // }
 
-function Header():JSX.Element {
+function Header(): JSX.Element {
 	const [{ user }, dispatch] = useStateValue()
+
+	function signout() {
+		auth.signOut()
+	}
 
 	return (
 		<div className="header">
@@ -61,8 +66,8 @@ function Header():JSX.Element {
 				<IconButton>
 					<NotificationsActiveIcon />
 				</IconButton>
-				<IconButton>
-					<ExpandMoreIcon />
+				<IconButton onClick={signout}>
+					<ExitToAppIcon />
 				</IconButton>
 			</div>
 		</div>
